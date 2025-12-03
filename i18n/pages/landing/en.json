@@ -1,0 +1,547 @@
+{
+  "template": "ai-wallpaper-template-one",
+  "theme": "light",
+  "header": {
+    "brand": {
+      "title": "AI Wallpaper Generator",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "AI Wallpaper Generator"
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "Pricing",
+          "url": "/#pricing",
+          "icon": "MdPayment"
+        },
+        {
+          "title": "Blog",
+          "url": "/posts",
+          "icon": "MdPayment"
+        }
+      ]
+    },
+    "buttons": [],
+    "show_sign": true,
+    "show_theme": false,
+    "show_locale": false
+  },
+  "hero": {
+    "title": "AI Wallpaper Generator",
+    "highlight_text": "AI Wallpaper",
+    "description": "Create unique, high-quality wallpapers in seconds using our advanced AI wallpaper generator. Perfect for phones, computers, and any device.",
+    "announcement": {
+      "label": "New",
+      "title": "🎉 AI Wallpaper Generator Now with 4K Resolution",
+      "url": "/#pricing"
+    },
+    "buttons": [],
+    "show_happy_users": false,
+    "show_badge": false
+  },
+  "introduce": {
+    "name": "introduce",
+    "title": "AI Wallpaper Generator",
+    "label": "Introduction",
+    "description": "Our AI wallpaper generator transforms your ideas into beautiful wallpapers. Simply enter a text description to generate stunning wallpapers in various styles and sizes.",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "items": [
+      {
+        "title": "Easy to Use AI Generator",
+        "description": "No design skills needed, just enter a text description to generate AI wallpapers instantly",
+        "icon": "RiMagicFill"
+      },
+      {
+        "title": "Multi-Device Wallpapers",
+        "description": "Our AI wallpaper generator creates images compatible with phones, tablets, computers, and various device sizes",
+        "icon": "RiDeviceFill"
+      },
+      {
+        "title": "High-Definition AI Wallpapers",
+        "description": "Generate wallpapers with up to 4K resolution using our advanced AI technology",
+        "icon": "RiImageFill"
+      }
+    ]
+  },
+  "benefit": {
+    "name": "benefit",
+    "title": "Why Choose Our AI Wallpaper Generator",
+    "label": "Benefits",
+    "description": "Get everything you need to create stunning wallpapers with our AI-powered platform.",
+    "items": [
+      {
+        "title": "Advanced AI Technology",
+        "description": "Our AI wallpaper generator uses state-of-the-art algorithms to create beautiful, unique wallpapers from your descriptions.",
+        "icon": "RiNextjsFill",
+        "image": {
+          "src": "/imgs/features/2.png"
+        }
+      },
+      {
+        "title": "Rich Style Library",
+        "description": "Choose from various artistic styles to generate the perfect AI wallpaper for your device.",
+        "icon": "RiClapperboardAiLine",
+        "image": {
+          "src": "/imgs/features/3.png"
+        }
+      },
+      {
+        "title": "User-Friendly Interface",
+        "description": "Our AI wallpaper generator features an intuitive design that makes creating custom wallpapers simple for everyone.",
+        "icon": "RiCodeFill",
+        "image": {
+          "src": "/imgs/features/4.png"
+        }
+      }
+    ]
+  },
+  "usage": {
+    "name": "usage",
+    "title": "How to Use Our AI Wallpaper Generator",
+    "description": "Create stunning wallpapers in three simple steps:",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Describe Your Wallpaper",
+        "description": "Enter a detailed description of the wallpaper you want our AI to generate.",
+        "image": {
+          "src": "/imgs/features/5.png"
+        }
+      },
+      {
+        "title": "Choose Style and Size",
+        "description": "Select from various artistic styles and device sizes for your AI-generated wallpaper.",
+        "image": {
+          "src": "/imgs/features/6.png"
+        }
+      },
+      {
+        "title": "Generate and Download",
+        "description": "Let our AI wallpaper generator create your custom wallpaper, then download it to your device.",
+        "image": {
+          "src": "/imgs/features/7.png"
+        }
+      },
+      {
+        "title": "Apply to Your Device",
+        "description": "Set your new AI-generated wallpaper as your background and enjoy your personalized device.",
+        "image": {
+          "src": "/imgs/features/8.png"
+        }
+      }
+    ]
+  },
+  "feature": {
+    "name": "feature",
+    "title": "AI Wallpaper Generator Features",
+    "description": "Our AI wallpaper generator offers a variety of powerful features",
+    "items": [
+      {
+        "title": "Text-to-Wallpaper AI",
+        "description": "Generate wallpapers that match your imagination through text descriptions with our AI",
+        "icon": "RiText"
+      },
+      {
+        "title": "Multiple AI Art Styles",
+        "description": "Our wallpaper generator supports realistic, anime, watercolor, oil painting, and many other styles",
+        "icon": "RiPaintBrushLine"
+      },
+      {
+        "title": "Custom Wallpaper Sizes",
+        "description": "Generate AI wallpapers in various device sizes for perfect fitting",
+        "icon": "RiRulerLine"
+      },
+      {
+        "title": "Batch Wallpaper Generation",
+        "description": "Generate multiple AI wallpapers in different styles at once",
+        "icon": "RiStackLine"
+      },
+      {
+        "title": "HD AI Wallpapers",
+        "description": "Our generator supports up to 4K resolution wallpaper output",
+        "icon": "RiHdLine"
+      },
+      {
+        "title": "Watermark-Free Downloads",
+        "description": "Premium users can download AI-generated wallpapers without watermarks",
+        "icon": "RiDownload2Line"
+      }
+    ]
+  },
+  "showcase": {
+    "disabled": true,
+    "name": "showcase",
+    "title": "AI Wallpaper Showcase",
+    "description": "See beautiful wallpapers created by our AI wallpaper generator",
+    "items": [
+      {
+        "title": "AI-Generated Nature Landscapes",
+        "description": "Mountains and waters created by our AI",
+        "url": "#",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/1.png"
+        }
+      },
+      {
+        "title": "AI Sci-Fi Wallpapers",
+        "description": "Future technology visualized by our generator",
+        "url": "#",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/2.png"
+        }
+      },
+      {
+        "title": "AI Anime Wallpapers",
+        "description": "2D art generated by our AI",
+        "url": "#",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/3.png"
+        }
+      },
+      {
+        "title": "AI Abstract Wallpapers",
+        "description": "Modern designs from our generator",
+        "url": "#",
+        "target": "_self",
+        "image": {
+          "src": "/imgs/showcases/4.png"
+        }
+      }
+    ]
+  },
+  "stats": {
+    "disabled": true,
+    "name": "stats",
+    "label": "Stats",
+    "title": "Users Love Our AI Wallpaper Generator",
+    "description": "for its ease of use and stunning results.",
+    "icon": "FaRegHeart",
+    "items": [
+      {
+        "title": "Trusted by",
+        "label": "10K+",
+        "description": "Users"
+      },
+      {
+        "title": "Generated",
+        "label": "1M+",
+        "description": "Wallpapers"
+      },
+      {
+        "title": "Available",
+        "label": "50+",
+        "description": "Styles"
+      }
+    ]
+  },
+  "pricing": {
+    "name": "pricing",
+    "label": "Pricing",
+    "title": "AI Wallpaper Generator Plans",
+    "description": "Flexible pricing plans to meet different wallpaper creation needs",
+    "groups": [],
+    "items": [
+      {
+        "title": "Free",
+        "description": "Try our AI wallpaper generator",
+        "features_title": "Includes",
+        "features": [
+          "5 free AI wallpaper generations",
+          "Standard resolution wallpapers",
+          "Basic style options",
+          "Watermarked downloads"
+        ],
+        "interval": "monthly",
+        "amount": 0,
+        "cn_amount": 0,
+        "currency": "USD",
+        "price": "Free",
+        "original_price": "",
+        "unit": "",
+        "is_featured": false,
+        "tip": "No credit card required",
+        "button": {
+          "title": "Start Generating",
+          "url": "/auth/signin",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "free",
+        "product_name": "AI Wallpaper Generator Free Plan",
+        "credits": 5,
+        "valid_months": 0
+      },
+      {
+        "title": "Standard",
+        "description": "Perfect for wallpaper enthusiasts",
+        "label": "Popular",
+        "features_title": "Includes",
+        "features": [
+          "100 AI wallpaper generations per month",
+          "HD resolution wallpapers",
+          "All style options for your AI wallpapers",
+          "Watermark-free downloads",
+          "Batch wallpaper generation",
+          "Priority generation"
+        ],
+        "interval": "monthly",
+        "amount": 1900,
+        "cn_amount": 1900,
+        "currency": "USD",
+        "price": "$19",
+        "original_price": "$29",
+        "unit": "month",
+        "is_featured": true,
+        "tip": "Most popular AI wallpaper plan",
+        "button": {
+          "title": "Choose Standard",
+          "url": "/auth/signin",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard",
+        "product_name": "AI Wallpaper Generator Standard Plan",
+        "credits": 100,
+        "valid_months": 1
+      },
+      {
+        "title": "Professional",
+        "description": "For professional wallpaper creators",
+        "features_title": "Includes",
+        "features": [
+          "Unlimited AI wallpaper generations",
+          "4K Ultra HD resolution wallpapers",
+          "All advanced AI features",
+          "Commercial usage rights for your wallpapers",
+          "AI wallpaper generator API access",
+          "Priority support"
+        ],
+        "interval": "monthly",
+        "amount": 4900,
+        "cn_amount": 4900,
+        "currency": "USD",
+        "price": "$49",
+        "original_price": "$69",
+        "unit": "month",
+        "is_featured": false,
+        "tip": "Professional AI wallpaper solution",
+        "button": {
+          "title": "Choose Professional",
+          "url": "/auth/signin",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "pro",
+        "product_name": "AI Wallpaper Generator Professional Plan",
+        "credits": 9999,
+        "valid_months": 1
+      }
+    ]
+  },
+  "testimonial": {
+    "disabled": true,
+    "name": "testimonial",
+    "label": "Testimonial",
+    "title": "What Users Say About Our AI Wallpaper Generator",
+    "description": "Hear from users who have transformed their devices with our AI-generated wallpapers.",
+    "icon": "GoThumbsup",
+    "items": [
+      {
+        "title": "David Chen",
+        "label": "Graphic Designer",
+        "description": "This AI wallpaper generator has revolutionized my workflow. I can quickly create custom wallpapers for my clients in minutes instead of hours!",
+        "image": {
+          "src": "/imgs/users/1.png"
+        }
+      },
+      {
+        "title": "Rachel Kim",
+        "label": "Tech Enthusiast",
+        "description": "I change my phone wallpaper weekly now thanks to this amazing AI generator. The quality and variety of styles are impressive!",
+        "image": {
+          "src": "/imgs/users/2.png"
+        }
+      },
+      {
+        "title": "Marcus Thompson",
+        "label": "Content Creator",
+        "description": "As a YouTuber, I need fresh backgrounds constantly. This AI wallpaper tool lets me generate exactly what I need for each video theme.",
+        "image": {
+          "src": "/imgs/users/3.png"
+        }
+      },
+      {
+        "title": "Sofia Garcia",
+        "label": "Student",
+        "description": "The free plan of this AI wallpaper generator is perfect for students like me. I can personalize all my devices without spending money!",
+        "image": {
+          "src": "/imgs/users/4.png"
+        }
+      },
+      {
+        "title": "James Wilson",
+        "label": "IT Professional",
+        "description": "Our company uses the Professional plan to create branded wallpapers for all employee devices. This AI tool saves us thousands in design costs.",
+        "image": {
+          "src": "/imgs/users/5.png"
+        }
+      },
+      {
+        "title": "Anna Zhang",
+        "label": "Artist",
+        "description": "Even as an artist, I use this AI wallpaper generator for inspiration. The variety of styles it can produce is truly impressive!",
+        "image": {
+          "src": "/imgs/users/6.png"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "name": "faq",
+    "label": "FAQ",
+    "title": "AI Wallpaper Generator FAQ",
+    "description": "Common questions about our AI wallpaper generation service",
+    "items": [
+      {
+        "title": "How does the AI wallpaper generator work?",
+        "description": "Our AI wallpaper generator uses advanced artificial intelligence to create custom wallpapers. Simply log in to your account, enter a description of the wallpaper you want, select a style and size, then click the generate button. Your AI-created wallpaper will be ready to download in seconds."
+      },
+      {
+        "title": "What is the quality of the AI-generated wallpapers?",
+        "description": "Our AI generates high-quality visual wallpapers. The Standard plan supports HD resolution, while the Professional plan supports 4K Ultra HD resolution for the most detailed AI wallpapers available."
+      },
+      {
+        "title": "Can I use the AI-generated wallpapers commercially?",
+        "description": "Wallpapers created with our Free and Standard plans are for personal use only. For commercial usage of AI-generated wallpapers, please choose the Professional plan which includes commercial usage rights."
+      },
+      {
+        "title": "How many wallpapers can I generate with the AI wallpaper generator?",
+        "description": "The number of wallpapers you can generate depends on your plan. The Free plan includes 5 AI wallpaper generations, the Standard plan offers 100 generations per month, and the Professional plan provides unlimited AI wallpaper generations."
+      },
+      {
+        "title": "What devices are compatible with wallpapers from your AI generator?",
+        "description": "Our AI wallpaper generator creates wallpapers compatible with all devices including smartphones (iPhone, Android), tablets, laptops, desktop computers, and smart TVs. You can select the appropriate size for your device when generating your AI wallpaper."
+      },
+      {
+        "title": "Can I customize the style of my AI-generated wallpapers?",
+        "description": "Yes! Our AI wallpaper generator offers multiple artistic styles including realistic, anime, watercolor, oil painting, minimalist, abstract, and many more. You can specify your preferred style when creating your AI wallpaper."
+      },
+      {
+        "title": "Do I need design skills to use the AI wallpaper generator?",
+        "description": "Not at all! Our AI wallpaper generator is designed for everyone. You only need to describe what you want, and our AI technology handles the creative process. No design or artistic skills are required to create beautiful wallpapers."
+      },
+      {
+        "title": "How often can I change my AI-generated wallpapers?",
+        "description": "You can change your wallpapers as often as you like, limited only by the number of generations in your plan. Many users enjoy refreshing their device backgrounds weekly or even daily with new AI-generated wallpapers."
+      }
+    ]
+  },
+  "cta": {
+    "name": "cta",
+    "title": "Transform Your Devices with AI Wallpaper Generator",
+    "description": "Join thousands of users creating stunning, personalized AI wallpapers daily. Our advanced AI wallpaper generator makes creating beautiful, custom wallpapers simple, fast, and enjoyable for any device.",
+    "buttons": [
+      {
+        "title": "Create AI Wallpapers Now",
+        "url": "/auth/signin",
+        "target": "_self",
+        "icon": "GoArrowUpRight"
+      },
+      {
+        "title": "Browse AI Wallpaper Gallery",
+        "url": "/#showcase",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ]
+  },
+  "footer": {
+    "name": "footer",
+    "brand": {
+      "title": "AI Wallpaper Generator",
+      "description": "Create high-quality, unique wallpapers using our advanced AI technology",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "AI Wallpaper Generator"
+      },
+      "url": "/"
+    },
+    "copyright": "© 2024 AI Wallpaper Generator. All rights reserved.",
+    "nav": {
+      "items": [
+        {
+          "title": "Product",
+          "children": [
+            {
+              "title": "AI Wallpaper Features",
+              "url": "/#feature",
+              "target": "_self"
+            },
+            {
+              "title": "Generator Pricing",
+              "url": "/#pricing",
+              "target": "_self"
+            },
+            {
+              "title": "Wallpaper Showcase",
+              "url": "/#showcase",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "children": [
+            {
+              "title": "AI Wallpaper FAQ",
+              "url": "/#faq",
+              "target": "_self"
+            },
+            {
+              "title": "Contact Our Team",
+              "url": "mailto:support@aiwallpaper.com",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "Discord",
+          "icon": "RiDiscordFill",
+          "url": "#",
+          "target": "_blank"
+        },
+        {
+          "title": "Twitter",
+          "icon": "RiTwitterFill",
+          "url": "#",
+          "target": "_blank"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "Privacy Policy",
+          "url": "/privacy"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "/terms"
+        }
+      ]
+    }
+  }
+}

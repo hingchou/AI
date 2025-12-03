@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /*?*q=
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /

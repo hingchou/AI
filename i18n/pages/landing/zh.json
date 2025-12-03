@@ -1,0 +1,653 @@
+{
+  "template": "ai-wallpaper-template-one",
+  "theme": "light",
+  "header": {
+    "brand": {
+      "title": "AI壁纸工坊",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "AI壁纸工坊"
+      },
+      "url": "/zh"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "功能特点",
+          "url": "/#feature",
+          "icon": "HiOutlineSparkles"
+        },
+        {
+          "title": "定价",
+          "url": "/#pricing",
+          "icon": "MdPayment"
+        },
+        {
+          "title": "案例展示",
+          "url": "/#showcase",
+          "icon": "BiCube",
+          "children": [
+            {
+              "title": "AI壁纸商店",
+              "description": "AI壁纸生成器",
+              "icon": "MdOutlineWallpaper",
+              "url": "https://aiwallpaper.shop",
+              "target": "_blank"
+            },
+            {
+              "title": "AI封面生成器",
+              "description": "AI封面生成器",
+              "icon": "",
+              "url": "https://aicover.design",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "title": "开始制作 AI 壁纸",
+        "url": "/zh/posts",
+        "target": "_self",
+        "variant": "link",
+        "icon": "RiFlashlightFill"
+      }
+    ],
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": true
+  },
+  "hero": {
+    "title": "几秒生成高质量 AI 壁纸",
+    "highlight_text": "AI壁纸工坊",
+    "description": "专业AI生成壁纸平台：支持多风格、多尺寸与4K高清输出。手机与桌面壁纸一键生成，立即开始你的 AI 艺术创作。",
+    "announcement": {
+      "label": "2025",
+      "title": "🎉 新年快乐",
+      "url": "/#pricing"
+    },
+    "tip": "🎁 2025年前五折优惠",
+    "buttons": [
+      {
+        "title": "立即开始",
+        "icon": "RiFlashlightFill",
+        "url": "/#pricing",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "加入 Discord",
+        "icon": "RiDiscordFill",
+        "url": "https://discord.gg/HQNnrzjZQS",
+        "target": "_blank",
+        "variant": "outline"
+      }
+    ],
+    "show_happy_users": true,
+    "show_badge": false
+  },
+  "branding": {
+    "title": "AI壁纸工坊建立在巨人的肩膀上",
+    "items": [
+      {
+        "title": "Next.js",
+        "image": {
+          "src": "/imgs/logos/nextjs.svg",
+          "alt": "Next.js"
+        }
+      },
+      {
+        "title": "React",
+        "image": {
+          "src": "/imgs/logos/react.svg",
+          "alt": "React"
+        }
+      },
+      {
+        "title": "TailwindCSS",
+        "image": {
+          "src": "/imgs/logos/tailwindcss.svg",
+          "alt": "TailwindCSS"
+        }
+      },
+      {
+        "title": "Shadcn/UI",
+        "image": {
+          "src": "/imgs/logos/shadcn.svg",
+          "alt": "Shadcn/UI"
+        }
+      },
+      {
+        "title": "Vercel",
+        "image": {
+          "src": "/imgs/logos/vercel.svg",
+          "alt": "Vercel"
+        }
+      }
+    ]
+  },
+  "introduce": {
+    "name": "introduce",
+    "title": "什么是 AI壁纸工坊",
+    "label": "介绍",
+    "description": "AI壁纸工坊是一个专业 AI 壁纸生成平台。输入文字描述或参考图，即可生成不同风格与尺寸的高质量壁纸。",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "items": [
+      {
+        "title": "即用型模板",
+        "description": "从数十个生产就绪的 AI SaaS 模板中选择，快速启动您的项目。",
+        "icon": "RiNextjsFill"
+      },
+      {
+        "title": "基础设施配置",
+        "description": "立即获取内置最佳实践的可扩展基础设施。",
+        "icon": "RiDatabase2Line"
+      },
+      {
+        "title": "快速部署",
+        "description": "在几小时内将您的 AI SaaS 应用部署到生产环境，而不是几天。",
+        "icon": "RiCloudyFill"
+      }
+    ]
+  },
+  "benefit": {
+    "name": "benefit",
+    "title": "为什么选择 AI壁纸工坊",
+    "label": "优势",
+    "description": "获取壁纸创作所需的一切——从多风格生成到4K高清导出与批量生成。",
+    "items": [
+      {
+        "title": "完整框架",
+        "description": "基于 Next.js 构建，集成身份验证、支付和 AI 功能 - 一切开箱即用。",
+        "icon": "RiNextjsFill",
+        "image": {
+          "src": "/imgs/features/2.png"
+        }
+      },
+      {
+        "title": "丰富的模板库",
+        "description": "选择各种 AI SaaS 模板来启动您的项目 - 聊天机器人、图像生成等。",
+        "icon": "RiClapperboardAiLine",
+        "image": {
+          "src": "/imgs/features/3.png"
+        }
+      },
+      {
+        "title": "技术指导",
+        "description": "获得专门支持并加入我们的开发者社区，确保您成功启动。",
+        "icon": "RiCodeFill",
+        "image": {
+          "src": "/imgs/features/4.png"
+        }
+      }
+    ]
+  },
+  "usage": {
+    "name": "usage",
+    "title": "如何使用 AI壁纸工坊生成壁纸",
+    "description": "三步快速生成个性化 AI 壁纸：",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "描述你的壁纸",
+        "description": "输入你想要的壁纸主题、风格与构图（或上传参考图）。",
+        "image": { "src": "/imgs/features/5.png" }
+      },
+      {
+        "title": "选择风格与尺寸",
+        "description": "选择设备尺寸（手机/桌面）与艺术风格（极简/赛博/动漫/风景等）。",
+        "image": { "src": "/imgs/features/6.png" }
+      },
+      {
+        "title": "生成与下载",
+        "description": "AI生成壁纸后进行高清导出或批量下载，应用到你的设备。",
+        "image": { "src": "/imgs/features/7.png" }
+      }
+    ]
+  },
+  "feature": {
+    "name": "feature",
+    "title": "平台核心功能",
+    "description": "快速生成高质量 AI 壁纸所需的一切。",
+    "items": [
+      {
+        "title": "Next.js 模板",
+        "description": "生产就绪的 Next.js 模板，支持 SEO 友好结构和国际化。",
+        "icon": "RiNextjsFill"
+      },
+      {
+        "title": "身份验证和支付",
+        "description": "集成 Google OAuth、一键登录和 Stripe 支付处理。",
+        "icon": "RiKey2Fill"
+      },
+      {
+        "title": "数据基础设施",
+        "description": "内置 Supabase 集成，提供可靠和可扩展的数据存储。",
+        "icon": "RiDatabase2Line"
+      },
+      {
+        "title": "一键部署",
+        "description": "无缝部署到 Vercel 或 Cloudflare，自动化设置。",
+        "icon": "RiCloudy2Fill"
+      },
+      {
+        "title": "业务分析",
+        "description": "集成 Google Analytics 和 Search Console 追踪增长。",
+        "icon": "RiBarChart2Line"
+      },
+      {
+        "title": "AI 就绪基础设施",
+        "description": "预配置 AI 集成，内置积分系统和 API 销售。",
+        "icon": "RiRobot2Line"
+      }
+    ]
+  },
+  "showcase": {
+    "name": "showcase",
+    "title": "AI 壁纸示例作品",
+    "description": "示例作品展示不同风格的 AI 生成壁纸。",
+    "items": [
+      {
+        "title": "ThinkAny",
+        "description": "AI 搜索引擎",
+        "url": "https://thinkany.ai",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/7.png"
+        }
+      },
+      {
+        "title": "HeyBeauty",
+        "description": "AI 虚拟试妆",
+        "url": "https://heybeauty.ai",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/5.png"
+        }
+      },
+      {
+        "title": "AI Wallpaper",
+        "description": "AI 壁纸生成器",
+        "url": "https://aiwallpaper.shop",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/1.png"
+        }
+      },
+      {
+        "title": "AI Cover",
+        "description": "AI 封面生成器",
+        "url": "https://aicover.design",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/2.png"
+        }
+      },
+      {
+        "title": "GPTs Works",
+        "description": "GPTs 目录",
+        "url": "https://gpts.works",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/3.png"
+        }
+      },
+      {
+        "title": "Melodisco",
+        "description": "AI 音乐播放器",
+        "url": "https://melodis.co",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/4.png"
+        }
+      },
+      {
+        "title": "Pagen",
+        "description": "AI 落地页生成器",
+        "url": "https://pagen.so",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/6.png"
+        }
+      },
+      {
+        "title": "SoraFM",
+        "description": "AI 视频生成器",
+        "url": "https://sorafm.trys.ai",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/8.png"
+        }
+      },
+      {
+        "title": "PodLM",
+        "description": "AI 播客生成器",
+        "url": "https://podlm.ai",
+        "target": "_blank",
+        "image": {
+          "src": "/imgs/showcases/9.png"
+        }
+      }
+    ]
+  },
+  "stats": {
+    "name": "stats",
+    "label": "统计",
+    "title": "用户喜爱 AI壁纸工坊",
+    "description": "因为它简单易用且生成效果出色。",
+    "icon": "FaRegHeart",
+    "items": [
+      {
+        "title": "信任",
+        "label": "99+",
+        "description": "客户"
+      },
+      {
+        "title": "内置",
+        "label": "20+",
+        "description": "组件"
+      },
+      {
+        "title": "快速发布",
+        "label": "5",
+        "description": "分钟"
+      }
+    ]
+  },
+  "pricing": {
+    "name": "pricing",
+    "label": "定价",
+    "title": "定价",
+    "description": "选择适合你的壁纸创作套餐，享受高清与批量生成。",
+    "groups": [],
+    "items": [
+      {
+        "title": "入门版",
+        "description": "开始你的 AI 壁纸创作。",
+        "features_title": "包含",
+        "features": [
+          "100 积分，有效期 1 个月",
+          "NextJS 模板",
+          "SEO 友好结构",
+          "Stripe 支付",
+          "Supabase 数据存储",
+          "Google OAuth 和一键登录",
+          "国际化支持"
+        ],
+        "interval": "one-time",
+        "amount": 9900,
+        "cn_amount": 69900,
+        "currency": "USD",
+        "price": "$99",
+        "original_price": "$199",
+        "unit": "USD",
+        "is_featured": false,
+        "tip": "一次付费，无限项目！",
+        "button": {
+          "title": "开始创作",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter",
+        "product_name": "AI壁纸工坊 入门版",
+        "credits": 100,
+        "valid_months": 1
+      },
+      {
+        "title": "标准版",
+        "description": "快速生成高清壁纸与批量创作。",
+        "label": "热门",
+        "features_title": "包含入门版所有功能，另加",
+        "features": [
+          "200 积分，有效期 3 个月",
+          "Vercel 或 Cloudflare 部署",
+          "隐私和条款生成",
+          "Google Analytics 集成",
+          "Google Search Console 集成",
+          "Discord 社区",
+          "首次发布技术支持",
+          "终身更新"
+        ],
+        "interval": "one-time",
+        "amount": 19900,
+        "cn_amount": 139900,
+        "currency": "USD",
+        "price": "$199",
+        "original_price": "$299",
+        "unit": "USD",
+        "is_featured": true,
+        "tip": "一次付费，无限项目！",
+        "button": {
+          "title": "选择标准版",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard",
+        "product_name": "AI壁纸工坊 标准版",
+        "credits": 200,
+        "valid_months": 3
+      },
+      {
+        "title": "高级版",
+        "description": "4K超清、无限创作与高级功能。",
+        "features_title": "包含标准版所有功能，另加",
+        "features": [
+          "300 积分，有效期 1 年",
+          "AI 业务功能",
+          "用户中心",
+          "积分系统",
+          "SaaS API 销售",
+          "管理系统",
+          "优先技术支持"
+        ],
+        "interval": "one-time",
+        "amount": 29900,
+        "cn_amount": 199900,
+        "currency": "USD",
+        "price": "$299",
+        "original_price": "$399",
+        "unit": "USD",
+        "is_featured": false,
+        "tip": "一次付费，无限项目！",
+        "button": {
+          "title": "选择高级版",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "premium",
+        "product_name": "AI壁纸工坊 高级版",
+        "credits": 300,
+        "valid_months": 12
+      }
+    ]
+  },
+  "testimonial": {
+    "name": "testimonial",
+    "label": "用户评价",
+    "title": "用户如何评价 AI壁纸工坊",
+    "description": "听听使用 AI壁纸工坊 生成高清壁纸的用户怎么说。",
+    "icon": "GoThumbsup",
+    "items": [
+      {
+        "title": "陈大卫",
+        "label": "AIWallpaper.shop 创始人",
+        "description": "AI壁纸工坊让我们在两天内完成壁纸生成流程，快速上线并获得付费用户。",
+        "image": {
+          "src": "/imgs/users/1.png"
+        }
+      },
+      {
+        "title": "金瑞秋",
+        "label": "HeyBeauty.ai 技术总监",
+        "description": "平台的生成质量与易用性非常出色，我们专注内容创作即可快速发布。",
+        "image": {
+          "src": "/imgs/users/2.png"
+        }
+      },
+      {
+        "title": "马库斯",
+        "label": "独立开发者",
+        "description": "作为独立创作者，我用 AI壁纸工坊 一个周末就产出了整套壁纸合集。",
+        "image": {
+          "src": "/imgs/users/3.png"
+        }
+      },
+      {
+        "title": "索菲亚",
+        "label": "Melodisco CEO",
+        "description": "生成流程高效，风格统一，几小时就能构建出完整壁纸系列。",
+        "image": {
+          "src": "/imgs/users/4.png"
+        }
+      },
+      {
+        "title": "詹姆斯",
+        "label": "GPTs.works 技术主管",
+        "description": "平台稳定高效，我们轻松扩展到万级用户浏览与下载。",
+        "image": {
+          "src": "/imgs/users/5.png"
+        }
+      },
+      {
+        "title": "张安娜",
+        "label": "创业者",
+        "description": "从概念到发布只用了 3 天！AI壁纸工坊让我们快速测试与上线。",
+        "image": {
+          "src": "/imgs/users/6.png"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "name": "faq",
+    "label": "常见问题",
+    "title": "关于 AI壁纸工坊 的常见问题",
+    "description": "还有其他问题？通过 Discord 或电子邮件联系我们。",
+    "items": [
+      {
+        "title": "AI壁纸工坊是什么，它如何工作？",
+        "description": "AI壁纸工坊是一个专业的 AI 壁纸生成平台。输入文字描述（Prompt）或上传参考图，选择风格与尺寸，平台即可生成高清壁纸。"
+      },
+      {
+        "title": "需要高级技术能力吗？",
+        "description": "不需要。平台提供直观的界面与示例提示词，新手也能快速上手；进阶用户可结合 ControlNet、LoRA 提升一致性与细节。"
+      },
+      {
+        "title": "支持哪些设备与分辨率？",
+        "description": "支持手机竖屏（如 1290×2796）、桌面 4K（3840×2160）以及自定义尺寸。生成后可一键导出或批量下载。"
+      },
+      {
+        "title": "如何保证生成质量？",
+        "description": "我们提供结构化提示词模板、负面提示词、Refiner/超分与分块渲染建议，并支持 ControlNet 固定构图与姿态。"
+      },
+      {
+        "title": "可以自定义风格吗？",
+        "description": "可以。支持选择预设风格（极简/赛博/动漫/风景等），也可加载自定义 LoRA 与参考图，实现品牌化风格。"
+      },
+      {
+        "title": "生成的壁纸可以商用吗？",
+        "description": "请依据所选套餐与具体授权说明。专业版支持更高分辨率与更宽松的使用范围，具体以平台条款为准。"
+      }
+    ]
+  },
+  "cta": {
+    "name": "cta",
+    "title": "开始你的 AI 壁纸创作",
+    "description": "立即体验专业AI生成壁纸平台，快速生成属于你的壁纸。",
+    "buttons": [
+      {
+        "title": "开始创作",
+        "url": "/auth/signin",
+        "target": "_self",
+        "icon": "GoArrowUpRight"
+      },
+      {
+        "title": "浏览博客",
+        "url": "/zh/posts",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ]
+  },
+  "footer": {
+    "name": "footer",
+    "brand": {
+      "title": "AI壁纸工坊",
+      "description": "专业AI生成壁纸平台：多风格、多尺寸与4K高清输出。",
+      "logo": { "src": "/logo.png", "alt": "AI壁纸工坊" },
+      "url": "/"
+    },
+    "copyright": "©2023 AI壁纸生成平台",
+    "nav": {
+      "items": [
+        {
+          "title": "关于",
+          "children": [
+            {
+              "title": "功能特点",
+              "url": "/#feature",
+              "target": "_self"
+            },
+            {
+              "title": "案例展示",
+              "url": "/#showcase",
+              "target": "_self"
+            },
+            {
+              "title": "定价",
+              "url": "/#pricing",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "资源",
+          "children": [
+            { "title": "博客", "url": "/zh/posts", "target": "_self" },
+            { "title": "生成壁纸", "url": "/", "target": "_self" }
+          ]
+        },
+        {
+          "title": "友情链接",
+          "children": [
+            {
+              "title": "ThinkAny",
+              "url": "https://thinkany.ai",
+              "target": "_blank"
+            },
+            {
+              "title": "HeyBeauty",
+              "url": "https://heybeauty.ai",
+              "target": "_blank"
+            },
+            {
+              "title": "Pagen",
+              "url": "https://pagen.so",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": { "items": [] },
+    "agreement": {
+      "items": [
+        {
+          "title": "隐私政策",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "服务条款",
+          "url": "/terms-of-service"
+        }
+      ]
+    }
+  }
+}

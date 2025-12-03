@@ -1,0 +1,817 @@
+export type StaticPost = {
+  slug: string;
+  locale: string;
+  title: string;
+  description: string;
+  content: string;
+  cover_url?: string;
+};
+
+export const zhStaticPosts: StaticPost[] = [
+  {
+    slug: "prompt-engineering-wallpaper",
+    locale: "zh",
+    title: "提示词工程：从描述到高质量壁纸",
+    description: "结构化提示词并结合参考图与ControlNet，稳定产出高质量壁纸。",
+    content: `在AI艺术生成的领域，很多初学者都会遇到一个问题：为什么别人生成的壁纸是“大片感”，而我生成的却是“买家秀”？\n\n答案往往不在于你使用的模型（是 Midjourney 还是 Stable Diffusion），而在于**提示词工程 (Prompt Engineering)** 的质量。作为一名AI壁纸创作者，掌握**结构化提示词**的逻辑，是通往高质量创作的必经之路。\n\n本文将通过拆解我的创作工作流，教你如何从零开始构建完美的壁纸提示词，并利用 ControlNet 提升画面的一致性。\n\n## 第一部分：拒绝随机——结构化提示词的万能公式\n\n许多人写提示词像是在“写作文”，但AI更喜欢“读代码”。为了让AI精准理解你的意图，我们需要将提示词模块化。\n\n经过上万张壁纸的测试，我总结了一套**高成功率的通用公式**：\n\n> **核心公式：** (主体描述) + (环境背景) + (艺术风格/媒介) + (构图视角) + (光影与色调) + (画质修饰词) --ar 16:9\n\n### 1. 主题 (Subject)\n这是画面的主角。描述越具体越好。\n* Bad: A girl.\n* Good: A cyberpunk female cyborg with neon glowing circuitry on her face, silver hair.\n\n### 2. 风格与媒介 (Art Style & Medium)\n决定壁纸的“质感”。你是想要二次元动漫风，还是照片级写实风？\n* 关键词推荐: Digital Art, Oil Painting, Unreal Engine 5 Render, Studio Ghibli Style, Cyberpunk 2077 concept art.\n\n### 3. 构图与视角 (Composition)\n壁纸通常需要开阔的视野，避免主体过大填满屏幕。\n* 关键词推荐: Wide angle shot（广角）, Cinematic composition（电影感构图）, Rule of thirds（三分法）, Negative space（留白，适合放桌面图标）。\n\n### 4. 光影 (Lighting)\n光影是决定壁纸“高级感”的关键。\n* 关键词推荐: Volumetric lighting（体积光/丁达尔效应）, Neon lights（霓虹光）, Golden hour（黄金时刻）, Ray tracing（光线追踪）。\n\n---\n\n## 第二部分：不仅是加法——负面提示词 (Negative Prompts) 的艺术\n\n在 Stable Diffusion 中，告诉AI“不要画什么”和“画什么”一样重要。为了保证壁纸的纯净度，我们需要排除干扰元素。\n\n**通用高质量负面提示词 (直接复制使用)：**\n\n    (worst quality:2), (low quality:2), (normal quality:2), lowres, watermark, text, signature, bad anatomy, bad hands, missing fingers, extra digit, cropping, blurry, jpeg artifacts.\n\n*注意：如果你使用的是 Midjourney，可以使用 --no text watermark 等参数来实现类似效果。*\n\n---\n\n## 第三部分：一致性的秘密武器——结合 ControlNet\n\n当你想要生成一系列风格统一的壁纸，或者通过参考图复刻某个构图时，单纯的 Prompt 往往不够用。这时就需要引入 **ControlNet**。\n\n### 为什么 ControlNet 对壁纸创作至关重要？\n\n1. **锁定构图 (Canny/Lineart)：** 如果你有一张构图完美的风景照，想把它变成赛博朋克风格。使用 Canny 处理器提取线条，AI 就会严格按照原图的线条结构上色，而不会改变山峰或建筑的位置。\n2. **锁定姿态 (OpenPose)：** 如果你想生成人物壁纸，OpenPose 可以固定人物的动作（如战斗姿态、打坐），无论你如何更换背景或服装，人物动作始终不变。\n\n**操作小贴士：** 在生成壁纸时，建议将 ControlNet Weight 设置在 **0.6 - 0.8** 之间，给AI留出一定的自由发挥空间，这样生成的画面会更加自然。\n\n---\n\n## 第四部分：实战案例 (Prompt Showcase)\n\n为了让你更好地理解，以下分享两组热门壁纸的完整参数。你可以直接在 Midjourney 或 SD 中尝试。\n\n### 案例 1：未来都市 (Futuristic City)\n\n    Futuristic city skyline at night, towering skyscrapers with holographic advertisements, flying cars, rain slicked streets reflecting neon pink and blue lights, cyberpunk style, hyperrealistic, 8k resolution, cinematic lighting, wide angle shot --ar 16:9 --v 6.0\n\n*应用技巧：* 使用 “rain slicked streets” 来增强地面反光，非常适合深色模式桌面。\n\n### 案例 2：治愈系自然 (Serene Nature)\n\n    A lonely ancient tree on top of a hill, surrounding by sea of clouds, sunrise, golden hour lighting, fantasy art style, dreamy atmosphere, Studio Ghibli inspired, makoto shinkai style, detailed foliage, 4k --ar 16:9\n\n*应用技巧：* 结合“宫崎骏”和“新海诚”的风格词，打造通透、治愈的动漫感。\n\n---\n\n## 结语\n\n掌握**提示词工程**并不是死记硬背关键词，而是理解AI的“语言逻辑”。通过结构化的描述和ControlNet的精准控制，你也可以创造出独一无二的4K高清壁纸。\n\n如果你喜欢本期的教程，欢迎浏览本站的 Gallery 栏目下载更多无水印的高清原图。\n\n---\n\n### 💡 发布优化建议\n\n1. **排版关键**：在发布时，用代码块包裹 Prompt 内容（如上面的缩进区域）；图片加上 alt 属性，利于搜索引擎理解内容。\n2. **内链策略**：在实战案例部分添加链接到网站的图片下载页，提升浏览与转化。\n3. **AdSense 审核视角**：文章结构完整、信息密度高，满足“非低价值内容”的审核要求。`
+  },
+  {
+    slug: "sdxl-upscaling-workflow-4k-wallpapers",
+    locale: "zh",
+    title: "拒绝模糊：SDXL生成4K壁纸的后处理与放大全流程解析",
+    description: "SDXL原生出的图不够清晰？本文揭秘从1024px到4K/8K的无损放大技巧。掌握Hires.fix、Ultimate SD Upscale及图生图重绘技术，让你的AI壁纸细节拉满。",
+    content: `在使用 Stable Diffusion XL (SDXL) 进行创作时，我们通常得到的原生分辨率是 \`1024x1024\` 或 \`1152x896\`。虽然这个分辨率在手机上看尚可，但一旦作为电脑桌面壁纸（尤其是 2K/4K 显示器），就会暴露出细节模糊、噪点多等问题。
+
+很多新手仅仅使用 Photoshop 的“图像大小”硬拉分辨率，结果就是图片变糊。作为专业的壁纸创作者，我们追求的是**不仅放大尺寸，还要增加细节**。
+
+今天，我将公开本站壁纸背后的“高清化”工作流，教你如何将一张普通的 AI 图片“精修”为商业级 4K 壁纸。
+
+## 阶段一：生成时的直出优化 (Hires. Fix)
+
+高质量的壁纸始于生成阶段。虽然 SDXL 也就是 1.0 版本对分辨率支持更好，但**Hires. Fix (高清修复)** 依然是增加细节的第一道防线。
+
+### 为什么不能只用简单的 Upscaler？
+普通的放大器只是拉伸像素，而 Hires. Fix 会在放大的同时，在潜空间（Latent Space）里重新计算光影和纹理。
+
+**推荐设置 (Settings for Wallpapers)：**
+* **Upscaler (放大算法):**
+    * **写实类/风景:** 推荐 \`8x_NMKD-Superscale\` 或 \`4x-UltraSharp\`。这两个算法对皮肤纹理和自然景观的还原度极高。
+    * **二次元/动漫:** 推荐 \`R-ESRGAN 4x+ Anime6B\`，线条更锐利。
+* **Denoising Strength (重绘幅度):** \`0.3 - 0.4\`。
+    * *注意：* 太高会让画面产生幻觉（比如多出一只手）；太低则无法增加足够的新细节。
+* **Upscale by:** \`1.5\` 或 \`2\`。不要在这一步直接拉到 4K，显存容易爆，且生成速度慢。
+
+---
+
+## 阶段二：核心技术——图生图与 Ultimate SD Upscale
+
+这是将图片从“高清”提升到“极致细腻”的关键一步。当你已经有了一张构图完美的底图，我们需要用到 **Img2img (图生图)** 配合 **Ultimate SD Upscale 脚本**。
+
+### 什么是分块绘制 (Tile Upscaling)？
+SDXL 如果直接画一张 4096x2160 的图会崩溃。Ultimate SD Upscale 的原理是将图片切成很多个 \`512x512\` 的小方块，AI 一块一块地画，最后拼起来。这样不仅显存占用低，而且每一块都能塞进惊人的细节。
+
+### 4K 壁纸标准工作流 (Workflow)：
+
+1.  **发送到图生图 (Send to Img2img):** 将你满意的底图发送过去。
+2.  **启用 ControlNet Tile (可选但推荐):**
+    * 选择 \`ControlNet Unit 0\` -> 启用 -> 模型选择 \`control_v11f1e_sd15_tile\`。
+    * **目的：** 告诉 AI，“严格保持原图的构图和线条，不要乱改内容，只增加细节”。
+3.  **脚本选择 (Script):** 在底部选择 \`Ultimate SD Upscale\`。
+    * **Target Size type:** \`Scale from image size\` -> 设置为 \`2\` 或 \`4\` (取决于你想多大)。
+    * **Seams Fix:** \`Band Pass\` (修复拼接缝隙)。
+4.  **重绘幅度 (Denoising Strength) —— 只有这里最重要！**
+    * 如果你启用了 ControlNet Tile，重绘幅度可以给到 \`0.35\` 甚至 \`0.4\`。
+    * 如果没有 ControlNet，请严格控制在 \`0.15 - 0.25\`，否则你会发现壁纸里的树叶变成了小鸟。
+
+---
+
+## 阶段三：后期微调 (The Polish)
+
+哪怕经过了上述步骤，生成的 4K 图片在色彩上可能略显平淡。为了达到“视觉冲击力”标准，我们需要最后一步处理。
+
+这里我不推荐复杂的 PS，可以使用 Lightroom 或简单的色彩滤镜，重点调整以下三个参数：
+
+1.  **Clarity (清晰度):** +10~15。增加中间调的对比度，让材质质感更强。
+2.  **Vibrance (鲜艳度):** +10。AI 生成的图片有时候偏灰，稍微提一点鲜艳度会让霓虹灯或自然光更透亮。
+3.  **Grain (颗粒感):** 对于赛博朋克或胶片风壁纸，适当增加 \`5%\` 的颗粒感，可以有效掩盖 AI 生成特有的“塑料涂抹感”，让图片看起来更有电影质感。
+
+---
+
+## 总结：分辨率不仅是数字
+
+在 **AI壁纸工坊**，我们承诺每一张壁纸都经过了上述 \`SDXL Base -> Refiner -> Upscale -> Color Grade\` 的完整流程。我们提供的不仅仅是像素的堆砌，更是对每一个像素点的精细打磨。
+
+**想要体验真正的 4K 细节？**
+请点击下方的下载按钮，在大屏幕上查看原图，你会看到睫毛的倒影、雨滴的质感以及远处建筑的微光——这些都是我们在后处理环节为您精心保留的。`,
+  },
+  {
+    slug: "mobile-wallpaper-composition-safe-zones-guide",
+    locale: "zh",
+    title: "手机竖屏壁纸适配指南：掌握构图美学与UI安全区域 (适配iPhone 16/Android)",
+    description: "为什么你的AI壁纸设为锁屏后效果不佳？本文深度解析手机壁纸的“UI安全区域”，教你通过提示词控制留白，适配iOS景深特效，打造完美的竖屏视觉体验。",
+    content: `你是否遇到过这种情况：在电脑上看着绝美的一张 AI 绘画，兴冲冲地传到手机上设为锁屏，结果发现——**时间组件挡住了人物的眼睛，指纹解锁挡住了关键道具，或者图标让背景显得杂乱无章**。
+
+一张优秀的 AI 图像，并不天然就是一张合格的手机壁纸。
+
+作为 AI 创作者，我们需要具备**产品经理的思维**。在生成壁纸时，我们必须考虑到手机 OS 的 UI 布局。本文将为你揭秘如何利用“安全区域”逻辑，创作出完美适配 iPhone 和 Android 的竖屏壁纸。
+
+## 1. 比例的真相：别再只用 9:16
+
+在很长一段时间里，**9:16** 是手机壁纸的标准比例。但随着全面屏时代的到来（iPhone X 之后及各类 Android 旗舰），屏幕变得越来越修长。
+
+*   **传统比例 (9:16):** 适合旧款机型。
+*   **现代标准 (9:19.5 或 9:20):** 这是目前主流旗舰机的比例。
+
+> **SEO 建议：**
+> 在使用 Midjourney 或 Stable Diffusion 时，我建议优先使用 \`--ar 9:20\` (MJ) 或设置分辨率为 \`1080x2400\` (SD)。这样生成的图片在长屏手机上不会被自动裁切掉左右两边的细节。
+
+## 2. 核心概念：UI 安全区域 (Safe Zones)
+
+手机壁纸分为两个场景：**锁屏 (Lock Screen)** 和 **主屏 (Home Screen)**。它们的构图逻辑完全不同。
+
+### A. 锁屏壁纸：让位给时间 (The Time Slot)
+
+锁屏是壁纸展示的最佳舞台，但它有一个霸道的租客——**系统时间与日期组件**。
+
+*   **顶部 1/3 禁区：** 屏幕顶部约 30%-40% 的区域是留给时间显示的。如果你的 AI 生成的人物脸部贴在画布顶端，必然会被时间挡住。
+*   **解决方案：** 在 Prompt 中引导视线下移。
+
+**Prompt 技巧：** 增加关键词 \`lots of sky above\`, \`negative space at top\`, \`centered composition\`, \`subject at bottom\`。
+
+### B. 主屏壁纸：与图标共存 (The App Grid)
+
+主屏充满了 App 图标和 Widget 小组件。
+
+*   **视觉噪音：** 过于复杂的背景（如密集的赛博朋克街道）会让图标难以识别，让用户感到视觉疲劳。
+*   **解决方案：**
+    *   使用**极简主义 (Minimalism)** 风格。
+    *   或者采用**上繁下简**的构图，天空复杂好看，地面（图标区）保持干净。
+
+## 3. 进阶技巧：利用 iOS 景深特效 (Depth Effect)
+
+iOS 16 引入的“景深效果”（时间显示在人物头部后方，营造立体感）是目前最受欢迎的壁纸功能。要触发这个效果，AI 出图必须满足三个硬性指标：
+
+1.  **主体清晰：** 人物或建筑边缘必须锐利，不能有过度模糊的景深虚化（Bokeh），否则 iPhone 算法无法识别图层。
+2.  **顶部留白适中：** 主体头部不能触顶，也不能太低，必须刚好由于“时间组件”重叠一小部分。
+3.  **背景干净：** 纯色或简单的背景更容易触发景深算法。
+
+**Prompt 实战案例：**
+\`\`\`
+A minimal flat illustration of a samurai standing, white background, high contrast, sharp edges, centered, lots of negative space above head --ar 9:20 --v 6.0
+\`\`\`
+
+## 4. 构图修复：Outpainting (外绘)
+
+如果你生成了一张完美的图，但构图太满，不适合做壁纸，千万不要直接放弃。
+
+我们可以使用 **Midjourney 的 Pan/Zoom** 功能或 **Stable Diffusion 的 Outpainting** 来“无损拉伸”背景。
+
+**操作流：**
+
+1.  将图片导入 SD 的 Outpainting 脚本。
+2.  选择 **Down** (向下扩展) 或 **Up** (向上扩展)。
+3.  提示词只写背景描述（如 \`clear blue sky\` 或 \`dark texture ground\`）。
+
+这样你就能人为制造出“安全区域”，而不破坏原有的主体画质。
+
+## 结语
+
+好的 AI 壁纸不仅是艺术品，更是**工业设计品**。
+
+在 **AI壁纸工坊**，我们在上传每一张竖屏壁纸前，都会进行真机 UI 测试，确保时间不挡脸，图标不乱眼。请放心下载，享受极致的解锁体验。`,
+  },
+  {
+    slug: "cyberpunk-aesthetic-guide-colors-materials",
+    locale: "zh",
+    title: "赛博朋克风：色彩与材质的进阶指南",
+    description: "赛博朋克不只是霓虹灯。本文深入解析“高科技、低生活”的视觉核心，教你利用互补色（青橙色调）、材质光泽（雨水与金属）以及体积光参数，生成电影级的Cyberpunk 2077风格壁纸。",
+    content: `在 AI 壁纸的热搜榜上，“赛博朋克 (Cyberpunk)”永远占据前三席。但作为创作者，你是否发现：AI 生成的赛博朋克图像往往容易陷入“光污染”的误区——满屏杂乱的粉紫色，缺乏质感，像廉价的塑料玩具。
+
+真正的赛博朋克美学核心在于**“High Tech, Low Life” (高科技，低生活)** 的反差感。
+
+要做出《银翼杀手 2049》或《赛博朋克 2077》级别的壁纸，你需要精准控制两个变量：**具有冲突感的色彩**与**真实的物理材质**。本文将揭示这两个维度的 Prompt 秘籍。
+
+## 1. 色彩论：超越随机的霓虹灯
+
+很多新手喜欢用 \`colorful neon lights\`，这会导致画面颜色失控。高级的赛博朋克画面通常遵循严格的配色方案。
+
+### A. 经典的“青橙色调” (Teal and Orange)
+这是好莱坞大片的标准配色。冷色的阴影（青色/蓝绿色）与暖色的高光（橙色/金色）形成强烈的视觉张力。
+
+* **Prompt 关键词：**
+    * \`Teal and Orange color palette\`
+    * \`Cyan and Magenta lighting\` (青色与品红，另一种经典搭配)
+    * \`Cold blue shadows, warm yellow highlights\`
+
+### B. 黑色电平 (Black Levels)
+为了让霓虹灯更耀眼，背景必须足够黑。不要害怕黑暗，黑暗是光的容器。
+* **Prompt 关键词：** \`Deep shadows\`, \`High contrast\`, \`Chiaroscuro\` (明暗以此法), \`Dark atmosphere\`.
+
+---
+
+## 2. 材质学：拒绝“塑料感”
+
+AI (尤其是早期的 Midjourney V4 或 SD 1.5) 容易把所有物体都渲染得很光滑，导致“塑料感”很重。为了增加真实感和叙事性，我们需要引入**粗糙 (Gritty)** 和 **潮湿 (Wet)** 的材质。
+
+### A. 雨水与反射 (Rain & Reflection)
+雨水是赛博朋克的灵魂。它不仅渲染了悲凉的气氛，更重要的是，**湿润的地面是天然的反光板**，能将霓虹灯倒映出来，增加画面的层次感。
+* **必备关键词：**
+    * \`Wet pavement\` (潮湿的路面)
+    * \`Puddles reflecting neon signs\` (反射霓虹灯的水坑)
+    * \`Rainy night\` (雨夜)
+    * \`Droplets on camera lens\` (镜头上的水珠——增加临场感)
+
+### B. 工业做旧 (Industrial Grunge)
+“低生活”意味着事物是破败的、二手的、拼凑的。
+* **必备关键词：**
+    * \`Rusted metal\` (生锈的金属)
+    * \`Distressed leather\` (做旧皮革)
+    * \`Exposed cables and wires\` (裸露的电缆)
+    * \`Scratched chrome\` (有划痕的铬金属)
+
+---
+
+## 3. 光影渲染：体积与辉光
+
+光线不应该只是“亮”，它应该有体积。
+
+* **Volumetric Lighting (体积光/丁达尔效应):** 让光线在雾气中显现出光柱。在赛博朋克肮脏的空气中，光束尤为明显。
+* **Bloom (辉光/泛光):** 让高亮光源（如霓虹灯管）周围产生朦胧的光晕，增加梦幻感。
+* **Chromatic Aberration (色差):** 模拟老式摄像机镜头边缘的色彩偏移，是增加“科技故障感 (Glitch)”的神器。
+
+---
+
+## 4. 实战配方 (Prompt Recipe)
+
+结合以上理论，这里提供两套不同风格的赛博朋克壁纸参数：
+
+### 风格一：雨夜杀手 (The Blade Runner Vibe)
+这套参数强调孤独、冷峻、电影感。
+
+> **Prompt:** \`A lone cyborg detective walking in a narrow alleyway, futuristic Tokyo, heavy rain, wet asphalt reflecting vibrant neon signs, teal and orange color grading, volumetric fog, cinematic lighting, photorealistic, 8k, shot on 35mm lens, gritty texture --ar 16:9 --v 6.0\`
+
+### 风格二：复古合成波 (Synthwave / Retrowave)
+这套参数更偏向 80 年代复古风，强调网格线、落日和鲜艳的紫红色。
+
+> **Prompt:** \`Retrowave landscape, grid floor, retro sports car driving towards a giant sunset sun, palm trees silhouettes, synthwave style, magenta and cyan palette, vaporwave aesthetic, digital art, clean lines, 4k wallpaper --ar 16:9\`
+
+---
+
+## 结语
+
+赛博朋克不仅仅是一种视觉风格，它是一种关于未来的预言。
+
+在 **AI壁纸工坊**，我们不仅追求画面的华丽，更在意画面的质感与故事性。每一张壁纸都是通往 2077 年的一扇窗。如果你喜欢这种硬核科幻风格，请在下方查看我们的**[Ultra-HD Cyberpunk Collection]**。`,
+  },
+  {
+    slug: "nature-landscape-wallpaper-lighting-depth-guide",
+    locale: "zh",
+    title: "自然风景壁纸进阶：如何用AI重现国家地理级的光影层次与空间感",
+    description: "为什么你的AI风景图平平无奇？本文教你掌握黄金时刻(Golden Hour)、体积光(God Rays)与前景构图技巧，通过提示词精准控制景深与层次，生成媲美《国家地理》的4K自然壁纸。",
+    content: `风景壁纸是 AI 绘画中最常见的题材，但也是最容易“翻车”的领域。
+
+你是否发现：AI 生成的风景图虽然像素很高，但往往显得**扁平、没有纵深感**，或者光影逻辑混乱，像是一张廉价的贴图？
+
+一张好的风景壁纸，应该能让人感受到**空气的流动**和**空间的辽阔**。
+
+在 **AI壁纸工坊**，我们总结了拍摄“国家地理”级大片的三个核心要素：**光影 (Lighting)**、**层次 (Layering)** 和 **镜头感 (Camera Language)**。本文将教你如何用提示词复刻这些摄影技巧。
+
+## 1. 追光者：掌握自然光的魔法
+
+摄影是光的艺术，AI 绘画也是如此。不要只写 \`beautiful lighting\`，你需要指定具体的光线类型。
+
+### A. 黄金时刻 (Golden Hour)
+
+这是风景摄影的“王牌时间”，指日出后或日落前的一小时。光线呈金黄色，角度低，能拉出长长的影子，增加画面的立体感。
+
+* **关键词：** \`Golden hour lighting\`, \`Warm sunlight\`, \`Long shadows\`, \`Sun star\` (星芒).
+
+### B. 体积光与丁达尔效应 (God Rays)
+
+当光线穿过雾气、树林或云层时，会形成可见的光柱。这是增加画面“神圣感”和“通透感”的捷径。
+
+* **关键词：** \`Volumetric lighting\`, \`God rays\`, \`Shafts of light\`, \`Tyndall effect\`, \`Misty atmosphere\`.
+
+### C. 蓝色时刻 (Blue Hour)
+
+日落后天空呈现深邃的蓝色，适合表现宁静、神秘的氛围（如雪山、湖泊）。
+
+* **关键词：** \`Blue hour\`, \`Cold tones\`, \`Twilight\`, \`Bioluminescence\` (如果想加点奇幻色彩).
+
+---
+
+## 2. 构图法则：建立空间层次
+
+为了拒绝“扁平化”，我们需要在提示词中明确**前中远景**。
+
+> **公式：** (前景物体) + (中景主体) + (远景背景)
+
+* **前景 (Foreground):** 放置一些物体来引导视线，增加沉浸感。
+
+    * *例子：* \`Detailed rocks and wildflowers in foreground\` (前景的岩石和野花), \`Ripples on water\` (水面涟漪).
+
+* **中景 (Midground):** 画面的视觉中心。
+
+    * *例子：* \`A lonely cabin\` (孤独的小屋), \`A majestic waterfall\` (雄伟的瀑布).
+
+* **远景 (Background):** 交代环境的大气势。
+
+    * *例子：* \`Snow-capped mountain range\` (雪山山脉), \`Gigantic cumulonimbus clouds\` (巨大的积雨云).
+
+---
+
+## 3. 镜头语言：像摄影师一样思考
+
+AI 模型（特别是 SDXL 和 Midjourney V6）非常吃摄影术语。
+
+### A. 广角与微距
+
+* **大风景：** 使用 \`Wide angle lens\` (广角), \`Ultra-wide shot\` (超广角), \`Drone view\` (无人机视角), \`Bird's eye view\` (上帝视角)。
+
+* **特写：** 使用 \`Macro shot\` (微距), \`Close up\` (特写), \`Depth of field\` (景深/虚化背景).
+
+### B. 滤镜与胶片
+
+* **CPL 偏振镜：** \`Polarizing filter\` (可以让天空更蓝，水面更透).
+
+* **ND 减光镜：** \`Long exposure\` (长曝光，适合把流水拍成丝绸状).
+
+* **胶片质感：** \`Fujifilm Velvia\` (以色彩鲜艳著称的风景胶片), \`Kodak Ektar 100\`.
+
+---
+
+## 4. 实战演示 (Prompt Showcase)
+
+### 案例一：史诗级山川 (The Epic Mountains)
+
+> **Prompt:** \`National Geographic photography, majestic snow-capped Himalayan mountains, golden hour sunlight hitting the peaks, volumetric clouds, dramatic lighting, detailed pine forest in midground, reflection in a calm alpine lake in foreground, wide angle shot, 8k resolution, hyperrealistic, sharp focus --ar 16:9\`
+
+### 案例二：静谧森林 (The Mystic Forest)
+
+> **Prompt:** \`Deep ancient forest, morning mist, god rays piercing through canopy, lush ferns and mossy rocks on the ground, tyndall effect, ethereal atmosphere, cinematic composition, green and gold color palette, unreal engine 5 render --ar 9:16\`
+
+---
+
+## 结语
+
+大自然是最好的艺术家，而 AI 是你手中的画笔。
+
+通过合理运用光影和构图关键词，你不再是随机生成图片的“抽卡者”，而是掌控光影的“摄影师”。
+
+更多**4K原图**与**详细参数**，欢迎访问 **AI壁纸工坊** 的图库板块。让我们一起用 AI 记录（创造）世界之美。`,
+  },
+  {
+    slug: "minimalist-wallpaper-negative-space-color-psychology",
+    locale: "zh",
+    title: "极简风壁纸：留白、色块与低刺激配色——为你的数字生活“减负”",
+    description: "厌倦了复杂的桌面背景？本文深度解析极简主义壁纸的设计哲学。学习如何利用“大面积留白”为图标腾出空间，并使用低饱和度的“低刺激配色”缓解视觉疲劳，提升工作专注度。",
+    content: `在这个信息过载的时代，我们的眼睛每天都要处理成千上万像素的轰炸。当我们在电脑前工作，或者点亮手机屏幕时，一张复杂的壁纸往往会成为额外的“视觉噪音”，无形中消耗我们的注意力。
+
+这就是**极简主义 (Minimalism)** 壁纸为何在近年来成为硅谷精英和创意工作者首选的原因。
+
+**极简不代表空洞。** 相反，AI 生成极简壁纸比生成复杂图像更难——因为它要求我们在做“减法”的同时，依然保持美感。本文将教你如何用 AI 打造具有“禅意”的低刺激桌面。
+
+## 1. 留白的艺术：对抗 AI 的“填空强迫症”
+
+目前的 AI 模型（如 Midjourney 或 SDXL）都有一个倾向：**恐惧空白 (Horror Vacui)**。如果你不加限制，AI 会恨不得把画面的每一个角落都填满细节。
+
+要获得干净的极简壁纸，我们需要通过提示词强制 AI“闭嘴”。
+
+### 核心概念：负空间 (Negative Space)
+负空间不仅是背景，它是让图标“呼吸”的场所。
+
+* **Prompt 关键词策略：**
+    * \`Minimalism\` (极简主义)
+    * \`Huge negative space\` (巨大的负空间)
+    * \`Clean solid background\` (干净的纯色背景)
+    * \`Flat design\` (扁平化设计——去除光影和纹理的干扰)
+    * \`Vector art\` (矢量艺术——强调线条和色块)
+
+---
+
+## 2. 配色心理学：什么是“低刺激”颜色？
+
+赛博朋克的霓虹色虽然酷炫，但长时间注视容易导致视觉疲劳。为了打造“生产力桌面”，我们需要**低刺激 (Low-Stimulation)** 的配色方案。
+
+### A. 莫兰迪色系 (Morandi Colors)
+这是一组低饱和度的“高级灰”色调。它们柔和、冷静，给人以安宁感。
+* **推荐组合：** 雾霾蓝 (Dusty Blue)、鼠尾草绿 (Sage Green)、干枯玫瑰 (Dusty Rose)。
+* **Prompt 关键词：** \`Morandi color palette\`, \`Desaturated tones\`, \`Muted colors\`, \`Pastel tones\`.
+
+### B. 大地色系 (Earth Tones)
+源自自然的颜色，能有效降低焦虑感。
+* **推荐组合：** 米色 (Beige)、陶土色 (Terracotta)、橄榄色 (Olive)。
+* **Prompt 关键词：** \`Earth tones\`, \`Warm beige background\`, \`Organic colors\`.
+
+---
+
+## 3. 构图逻辑：几何与微缩主体
+
+极简壁纸通常有两种构图流派：**纯几何抽象** 与 **微缩主体**。
+
+### 流派一：包豪斯几何 (Bauhaus Geometry)
+利用简单的圆形、方形和线条构成平衡感。这种壁纸非常适合充满文件夹的电脑桌面，因为没有具体的主体会被遮挡。
+* **Prompt 示例：** \`Abstract geometric composition, bauhaus style, simple shapes, circles and lines, beige and sage green palette, flat design, 4k --ar 16:9\`
+
+### 流派二：微缩禅意 (Tiny Subject)
+在一个巨大的空旷背景中，放置一个极小的主体（如一只孤鸟、一棵树、一个人）。这种强烈的对比能瞬间营造出“孤独感”和“专注感”。
+* **Prompt 示例：** \`A tiny astronaut floating in the center of a vast empty white space, minimal style, lots of negative space, 8k --ar 16:9\`
+
+---
+
+## 4. 实战配方 (Prompt Recipe)
+
+以下是两款专为“深度工作 (Deep Work)”设计的极简壁纸参数：
+
+### 配方 1：迷雾森林 (The Foggy Zen)
+适合作为早晨开启工作模式的背景，清醒且冷静。
+> **Prompt:** \`Minimalist landscape, a single pine tree silhouette in heavy white fog, gradient grey background, high key lighting, ink wash painting style, zen atmosphere, massive negative space, 8k resolution --ar 16:9 --v 6.0\`
+
+### 配方 2：抽象沙丘 (Abstract Dunes)
+利用光影的曲线美，既有细节又不抢眼，非常适合作为图标的底衬。
+> **Prompt:** \`Abstract sand dunes top down view, soft curves, smooth texture, gradient of warm orange and peach colors, minimalist photography, clean shadows, no details, 4k wallpaper --ar 9:20\`
+
+---
+
+## 结语
+
+最好的壁纸，是你几乎感觉不到它存在，但当你移开视线注视它时，却能感到内心的平静。
+
+在 **AI壁纸工坊** 的“极简系列”中，我们剔除了所有的喧嚣与杂质，只为您保留最纯粹的色彩与线条。这不仅是壁纸，更是您数字工作台上的“视觉降噪耳机”。`,
+  },
+  {
+    slug: "anime-wallpaper-style-consistency-negative-prompts",
+    locale: "zh",
+    title: "动漫风壁纸：风格一致性与负面词——告别“崩坏”的二次元创作",
+    description: "AI生成的动漫图总是画风崩坏或手指变形？本文深度解析动漫壁纸创作中的“风格锁定”技巧，分享Midjourney Niji模式与Stable Diffusion的高通用负面词库，助你生成零瑕疵的4K二次元壁纸。",
+    content: `在 AI 壁纸的所有分类中，“动漫 (Anime)” 无疑是流量之王。从复古的 90 年代赛璐珞风格，到现代的新海诚式唯美光影，二次元的受众极其庞大。
+
+然而，动漫风格也是最容易“翻车”的领域。初学者常遇到的问题包括：人物肢体崩坏（尤其是手部）、画风在 2.5D 和 2D 之间摇摆不定、或者同一个角色的脸在不同图片中长得完全不一样。
+
+本文将专注于解决这两个核心难题：如何利用**特定的风格修饰词**锁定视觉效果，以及如何通过**强力的负面词**规避常见的绘图错误。
+
+## 1. 风格一致性：你是导演，不是抽卡玩家
+
+要生成高质量的动漫壁纸，首先要明确你想要的“画风 (Art Style)”。模糊的描述会导致 AI 随机混合不同的画法，产生违和感。
+
+### A. 锁定流派 (Genre Locking)
+不要只写 \`anime style\`，请尝试更具体的流派描述：
+* **赛璐珞风格 (Cel Shading):** 强调清晰的轮廓线和色块分明的阴影，适合表现经典的动画质感。
+    * *Keywords:* \`Cel shaded\`, \`Flat color\`, \`Clean lines\`, \`2D anime\`.
+* **厚涂风格 (Impasto / Painterly):** 弱化线条，强调色彩的堆叠和体积感，更有插画的艺术感。
+    * *Keywords:* \`Thick painting\`, \`Digital illustration\`, \`Detailed brushstrokes\`, \`Oil painting style\`.
+* **复古美学 (90s Retro):** 模拟老式电视的颗粒感和低饱和度色彩。
+    * *Keywords:* \`1990s anime style\`, \`Retro aesthetic\`, \`VHS artifact\`, \`Grainy\`, \`Sailor Moon style\`.
+
+### B. 善用 Niji 模型 (Midjourney 用户必读)
+如果你使用 Midjourney，请务必开启 \`--niji 6\` 模式。这是专为二次元优化的模型，对日漫构图和特征的理解远超通用模型。
+* **Raw 模式:** 添加 \`--style raw\` 可以减少模型自带的华丽修饰，还原更纯粹、更像“动画截图”的风格。
+
+---
+
+## 2. 负面词工程：二次元的“净化器”
+
+在生成写实照片时，一点点瑕疵可能被忽略，但在动漫这种强调线条完美的风格中，多一根手指或扭曲的肢体都会显得极其刺眼。
+
+以下是针对动漫风格的**通用高强度负面词库**。
+
+### Stable Diffusion 专用负面词 (Negative Prompts)
+复制以下内容填入 Negative Prompt 框：
+
+> \`(worst quality, low quality:1.4), (realistic, photorealistic, 3d, cgi:1.2), (bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry), sketch, monochrome, grayscale, skin spots, acnes, skin blemishes, facing away, tilted head, multiple people, lowres\`
+
+**原理解析：**
+* \`(realistic, 3d, cgi:1.2)\`: 这是一个关键点。很多 AI 倾向于把动漫脸画成 2.5D（半写实），这会让画面显得很油腻。加强这组负面词可以强制 AI 保持纯正的 2D 纸片人风格。
+* \`monochrome, grayscale\`: 防止画面变成黑白漫画草稿，确保全彩输出。
+
+---
+
+## 3. 构图优化：摆脱“大头照”
+
+动漫壁纸容易变成单纯的人物肖像。为了增加壁纸的耐看度，我们需要把人物放进环境里。
+
+* **环境描述:** 必须占据 Prompt 50% 以上的篇幅。
+    * *Good:* "School classroom with sunset light streaming through windows." (夕阳透过窗户洒进的教室)
+    * *Good:* "Cyberpunk street food stall at night." (夜晚的赛博朋克路边摊)
+* **镜头语言:**
+    * \`Cowboy shot\` (七分身，膝盖以上): 最适合展示人物穿搭和部分背景。
+    * \`Wide angle\` (广角): 交代环境气氛。
+    * \`Dutch angle\` (荷兰倾斜镜头): 增加画面的动态感和张力。
+
+---
+
+## 4. 实战配方 (Prompt Recipe)
+
+以下两组 Prompt 分别对应“现代唯美”和“复古怀旧”两种最受欢迎的壁纸风格。
+
+### 风格一：新海诚式唯美 (The "Shinkai" Vibe)
+强调极致的光影、蓝天白云和细腻的背景细节。
+> **Prompt:** \`Anime visual, a girl standing on a train station platform, clear blue sky with massive cumulus clouds, cherry blossoms falling, lens flare, emotional atmosphere, Makoto Shinkai style, Kimi no Na wa style, highly detailed background, vivid colors, 4k resolution --ar 16:9 --niji 6\`
+
+### 风格二：90年代复古蒸汽波 (90s Retro Aesthetic)
+强调低保真画质、柔焦效果和特定的色调。
+> **Prompt:** \`1990s anime screenshot, retro style, a female pilot in a cockpit, city lights at night in background, lo-fi aesthetic, VHS noise, soft blur, muted colors, cel shading, Sailor Moon art style, Cowboy Bebop vibes, 4k --ar 16:9 --niji 6\`
+
+---
+
+## 结语
+
+动漫壁纸的精髓在于“纯粹”。通过精准的风格锁定和强力的负面词过滤，我们可以去除 AI 生成中的杂质，还原二次元世界独有的线条美与色彩美。
+
+在 **AI壁纸工坊**，所有的动漫壁纸均经过 Niji 6 模型生成并经过人工筛选，确保无肢体崩坏，请放心下载设为桌面。`,
+  },
+  {
+    slug: "dark-mode-wallpaper-oled-contrast-noise-guide",
+    locale: "zh",
+    title: "暗色模式壁纸：对比度与噪点管理——为 OLED 屏幕而生",
+    description: "寻找完美的深色壁纸？本文揭秘如何为OLED屏幕设计“真黑”壁纸。掌握AI生成中的对比度平衡技巧，学会解决暗部色带（Banding）与噪点问题，既省电又护眼。",
+    content: `随着 OLED 屏幕在手机和显示器上的普及，“暗色模式 (Dark Mode)” 已经不再仅仅是一个系统设置，它成为了一种美学标准。
+
+一张优秀的暗色壁纸，不仅仅是把亮度调低。它需要精确控制**“真黑 (True Black)”**区域以节省电量，同时利用高对比度让主体“浮”在屏幕上。此外，暗色图像最容易暴露 AI 生成的缺陷——噪点和色带。
+
+本文将从技术角度解析，如何生成并处理一张完美的 4K 暗色壁纸。
+
+## 1. 追求“真黑”：OLED 的极致优势
+
+普通的 LCD 屏幕显示黑色时，背光板依然在发光，所以你看到的是“发灰的黑”。而 OLED 屏幕可以通过关闭像素点来实现**纯粹的黑色 (Hex: #000000)**。
+
+在 AI 生成中，如果不加控制，模型往往会生成深灰色或带有杂色的黑。我们需要强制模型输出纯黑。
+
+* **Prompt 关键词策略：**
+    * **核心词：** \`Pitch black background\`, \`OLED black\`, \`Solid black background\`, \`Void\`, \`Minimalist dark\`.
+    * **负面词 (填入 Negative Prompt):** \`Gray background\`, \`Light leaks\`, \`Nebula\`, \`Complex background\`.
+* **后期处理技巧：** 在 Photoshop 或 Lightroom 中，使用“色阶 (Levels)”工具，将黑色滑块稍微向右拉动，将深灰色强行压为纯黑（RGB 0,0,0）。这能显著提升 OLED 设备的续航。
+
+---
+
+## 2. 对比度艺术：黑暗中的光
+
+全黑是看不见的，暗色壁纸的灵魂在于**光**。为了让壁纸既护眼又惊艳，我们需要极高的动态范围（High Dynamic Range）。
+
+### 局部高光 (Local Highlights)
+不要照亮整个场景，只照亮主体边缘。这种技法类似于摄影中的“轮廓光 (Rim Light)”。
+* **Prompt 关键词：** \`Rim lighting\`, \`Bioluminescence\` (生物发光), \`Neon outline\`, \`Glowing edges\`, \`High contrast\`.
+
+### 避免“死黑”与“过曝”
+优秀的暗色壁纸应该保留中间调的细节。
+* **Prompt 关键词：** \`Subtle lighting\`, \`Volumetric lighting\`, \`Deep shadows\`.
+
+---
+
+## 3. 噪点与色带：暗部画质的隐形杀手
+
+这是 AI 生成暗色图片最大的痛点。当 AI 渲染大面积渐变黑暗区域时，经常会出现：
+1.  **色带 (Color Banding):** 颜色过渡不平滑，像梯田一样一层一层的。
+2.  **块状噪点 (Artifacts):** 看起来像压缩过度的 JPEG 图片。
+
+### 解决方案 A：有意为之的颗粒感 (Film Grain)
+与其费力消除色带，不如用噪点掩盖它。适当的胶片颗粒不仅能解决色带问题，还能增加高级的质感。
+* **Prompt 关键词：** \`Film grain\`, \`ISO 3200\`, \`Noise texture\`, \`Gritty style\`.
+* **后期处理：** 在修图软件中添加 \`2%-5%\` 的单色高斯杂色 (Gaussian Noise)。这能有效“打散”色带。
+
+### 解决方案 B：平滑修复 (Denoising)
+如果你追求极致的洁净感（如矢量风格），则需要使用强大的降噪工具。
+* **工具推荐：** 使用 Topaz DeNoise AI 或 Lightroom 的“减少杂色”功能。
+* **AI 生成设置：** 在 Stable Diffusion 中，适当调高 \`Steps\` (30-40步)，并使用 \`DPM++ 2M Karras\` 采样器，它在处理暗部细节时表现更稳定。
+
+---
+
+## 4. 实战配方 (Prompt Recipe)
+
+以下两款 Prompt 专为 OLED 屏幕设计，黑色像素占比超过 60%。
+
+### 配方 1：深海微光 (Bioluminescent Deep Sea)
+利用生物发光的冷色调与深海的黑暗形成对比，非常护眼。
+> **Prompt:** \`A glowing translucent jellyfish in the deep dark ocean, pitch black background, bioluminescent blue and purple tentacles, high contrast, macro photography, OLED black, minimal lighting, 8k resolution --ar 9:20 --v 6.0 --no background details\`
+
+### 配方 2：极简流体 (Dark Liquid Gold)
+黑金配色是奢华感的代表，适合商务风格桌面。
+> **Prompt:** \`Abstract liquid gold flowing on black surface, molten gold texture, sharp focus, metallic reflection, pitch black background, studio lighting, luxury aesthetic, 4k wallpaper --ar 16:9 --style raw\`
+
+---
+
+## 结语
+
+暗色壁纸不代表单调。相反，它考验的是创作者对光线的克制与掌控。
+
+在 **AI壁纸工坊** 的“Dark Mode 系列”中，我们利用直方图工具严格监控每一张图片的色彩分布，确保它们在您的 OLED 屏幕上能展现出最深邃的黑与最透亮的光。既保护您的视力，也延长您的电池寿命。`,
+  },
+  {
+    slug: "color-theory-wallpaper-psychology-guide",
+    locale: "zh",
+    title: "色彩理论在壁纸中的应用：如何利用配色影响情绪与专注力",
+    description: "为什么某些壁纸让你感到焦虑，而有些则让你平静？本文深度解析色彩心理学与配色原理（互补色/邻近色）。教你如何在Midjourney中使用Hex代码和专业术语，生成符合情绪需求的4K壁纸。",
+    content: `当你解锁手机或点亮电脑屏幕时，**色彩**是眼睛捕捉到的第一个信号。
+
+科学研究表明，色彩能在 90 秒内潜意识地影响人的情绪。作为壁纸，它占据了我们数字视野中最大的面积。一张配色混乱的壁纸可能会在无形中增加你的焦虑感，而一张遵循**色彩理论 (Color Theory)** 设计的壁纸，则能成为你调节心情、提升专注力的视觉锚点。
+
+在 AI 绘图中，生成颜色很容易，但生成“和谐”的配色却需要技巧。本文将教你如何像美术指导一样思考，用 Prompt 驾驭色彩。
+
+## 1. 基础配色模型：AI 懂得“和谐”吗？
+
+AI 模型（如 Midjourney）虽然没有审美意识，但它学习了数亿张人类艺术作品，因此它极其擅长执行经典的配色方案。
+
+### A. 互补色 (Complementary Colors) —— 视觉冲击
+色轮上相对的两种颜色。
+* **经典组合：** 橙色与蓝色（好莱坞大片）、红色与绿色（强烈冲突）、紫色与黄色。
+* **应用场景：** 赛博朋克风格、游戏壁纸、需要提振精神的画面。
+* **Prompt 关键词：** \`Complementary colors\`, \`High contrast color scheme\`, \`Teal and Orange\`, \`Vivid clash\`.
+
+### B. 邻近色 (Analogous Colors) —— 和谐统一
+色轮上相邻的 2-3 种颜色。这种搭配在大自然中很常见，给人的感觉最舒服、最自然。
+* **经典组合：** 蓝绿与青色（海洋）、橙色与黄色（秋天）。
+* **应用场景：** 自然风景、治愈系插画、长时间阅读的背景。
+* **Prompt 关键词：** \`Analogous palette\`, \`Harmonious colors\`, \`Cool tones\` (冷色调), \`Warm tones\` (暖色调).
+
+### C. 单色系 (Monochromatic) —— 极致简约
+同一种颜色的不同深浅变化。这是极简主义者的最爱。
+* **Prompt 关键词：** \`Monochromatic red\`, \`Single color palette\`, \`Shades of blue\`.
+
+---
+
+## 2. 色彩心理学：为你的“功能”选色
+
+不同的壁纸颜色可以激活不同的大脑反应。我们可以根据**使用场景**来定制壁纸。
+
+* 🔵 **蓝色 (Blue): 专注与冷静**
+    * 适合：编程、写作、深度工作。
+    * *Prompt:* \`Deep indigo\`, \`Navy blue\`, \`Calm ocean colors\`.
+* 🟢 **绿色 (Green): 放松与恢复**
+    * 适合：缓解视疲劳、休息间隙。
+    * *Prompt:* \`Sage green\`, \`Forest canopy\`, \`Emerald tones\`.
+* 🔴 **红色/橙色 (Red/Orange): 能量与激情**
+    * 适合：健身、需要创意的头脑风暴、唤醒早晨。
+    * *Prompt:* \`Vibrant crimson\`, \`Energetic orange\`, \`Sunset gradient\`.
+* 🟣 **紫色 (Purple): 创意与神秘**
+    * 适合：激发灵感、艺术创作。
+    * *Prompt:* \`Mystical violet\`, \`Neon purple\`, \`Cyber tones\`.
+
+---
+
+## 3. 高级技巧：如何在 Prompt 中精准控色
+
+很多时候，你告诉 AI “红色”，它会给你各种乱七八糟的红。想要精准控制，你需要更专业的词汇。
+
+### 技巧一：使用特定的色卡名称
+AI 对知名色卡名称的理解远胜于普通形容词。
+* 不要只说 \`Pink\` -> 试说 \`Pastel Pink\` (柔粉), \`Hot Pink\` (亮粉), \`Dusty Rose\` (干枯玫瑰).
+* 不要只说 \`Blue\` -> 试说 \`Electric Blue\` (电光蓝), \`Prussian Blue\` (普鲁士蓝), \`Tiffany Blue\`.
+
+### 技巧二：导演风格引用
+某些电影导演有标志性的配色风格，AI 可以直接模仿。
+* **Wes Anderson (韦斯·安德森):** 高饱和度、暖色、对称、复古糖果色。
+* **Blade Runner (银翼杀手):** 霓虹、黑暗、青橙色。
+* **Studio Ghibli (吉卜力):** 饱和度适中、自然的绿色与蓝色、水彩质感。
+
+### 技巧三：Hex 代码 (实验性)
+虽然不是 100% 准确，但 Midjourney V6 有时能识别十六进制颜色代码。
+* *Prompt 示例:* \`Color palette based on #FF5733 and #C70039...\`
+
+---
+
+## 4. 屏幕技术：sRGB vs DCI-P3
+
+作为壁纸创作者，我们还需要考虑用户的硬件。
+现在的旗舰手机（iPhone Pro 系列、高端 Android）都支持 **DCI-P3 广色域**，能显示比普通 sRGB 显示器多 25% 的颜色。
+
+* **如何利用：** 在生成色彩鲜艳的壁纸（如霓虹灯、花卉）时，可以在后期稍微提高饱和度 (Vibrance)，让那些“溢出”的色彩在高端屏幕上更具爆发力。我们网站提供的“HDR 系列”壁纸正是为此优化。
+
+---
+
+## 5. 实战配方 (Prompt Recipe)
+
+### 配方 1：韦斯·安德森式治愈 (The Wes Anderson Palette)
+利用对称构图和糖果色，带来一种强迫症被治愈的舒适感。
+> **Prompt:** \`Symmetrical architecture, Grand Budapest Hotel style, pastel color palette, pink and mint green, whimsical atmosphere, flat lighting, Wes Anderson aesthetic, cinematic shot, 8k --ar 16:9 --v 6.0\`
+
+### 配方 2：深邃心流蓝 (Deep Flow Blue)
+专为提高专注力设计的单色系壁纸。
+> **Prompt:** \`Abstract data flow, monochromatic dark blue palette, cybernetic patterns, smooth gradients, deep depth, glowing lines, high tech feeling, calming, focus wallpaper, 4k --ar 16:9\`
+
+---
+
+## 结语
+
+色彩不仅仅是装饰，它是情绪的开关。
+
+在 **AI壁纸工坊**，我们不仅仅是在生成图片，我们是在**“策划情绪”**。无论您是需要平静的绿色森林来抚慰心灵，还是需要热烈的红色几何来激发斗志，我们的色彩分类索引都能帮您找到最匹配当下心境的壁纸。`,
+  },
+  {
+    slug: "batch-generation-workflow-parameterization-templates",
+    locale: "zh",
+    title: "批量生成工作流：参数化与模板化——如何一天构建一个壁纸库",
+    description: "手动一张张生成壁纸效率太低？本文揭秘Midjourney的Permutations功能与Stable Diffusion的Dynamic Prompts插件。学会构建“主模板”，利用通配符与参数矩阵，一键生成上百张风格统一的高质量壁纸。",
+    content: `运营一个高质量的 AI 壁纸网站，最大的挑战不仅仅是画出一张好图，而是如何**持续、稳定且高效**地输出成百上千张高水准的图片。
+
+如果你还在手动修改 Prompt 中的每一个单词，然后点击“生成”，那么你的效率远远落后于专业创作者。
+
+本文将介绍工业级的 AI 绘图工作流：**参数化 (Parameterization)** 与 **模板化 (Templating)**。无论你是使用 Midjourney 还是 Stable Diffusion，掌握这套逻辑都能让你的产出效率提升 10 倍以上。
+
+## 1. 思维转变：从“写句子”到“写代码”
+
+普通用户把 Prompt 当作自然语言（句子），而专业用户把 Prompt 视为**代码模块**。
+
+一个标准化的壁纸 Prompt 应该包含以下变量模块：
+\`[主体 Subject]\` + \`[环境 Environment]\` + \`[修饰词 Modifiers]\` + \`[风格 Style]\` + \`[技术参数 Tech Specs]\`
+
+通过固定其中 4 个模块，只改变 1 个模块，我们就能生成一组风格统一但内容各异的系列壁纸（Collection）。
+
+-----
+
+## 2. Midjourney 神器：排列组合 (Permutations)
+
+Midjourney 自带了一个强大的“大括号”功能，允许你一次性运行多条命令。
+
+### 语法逻辑
+
+使用 \`{选项A, 选项B, 选项C}\` 的格式，AI 会自动将其拆解为独立的任务。
+
+### 实战案例：四季风景系列
+
+假设你想生成同一座山在不同季节和天气下的壁纸，无需写 4 条 Prompt。
+
+**输入代码：**
+
+> \`/imagine prompt: A majestic Fuji mountain landscape, {spring with cherry blossoms, summer with green forest, autumn with red maple leaves, winter with heavy snow}, cinematic lighting, photorealistic, 8k --ar 16:9 --v 6.0\`
+
+**系统执行：**
+Midjourney 会自动将其拆分为 4 个独立的 Job：
+
+1.  ...Fuji mountain... **spring with cherry blossoms** ...
+2.  ...Fuji mountain... **summer with green forest** ...
+3.  ... (以此类推)
+
+**进阶技巧：嵌套组合**
+你可以同时改变多个变量。
+
+> \`/imagine prompt: A {cyberpunk, steampunk} city street, {night, day}, 8k --ar 16:9\`
+> *这也将生成 2 x 2 = 4 张完全不同的图片。*
+
+-----
+
+## 3. Stable Diffusion 神器：动态提示词 (Dynamic Prompts)
+
+在 SD 中，我们需要安装 \`Dynamic Prompts\` 扩展来实现更复杂的逻辑。它的核心是**通配符 (Wildcards)**。
+
+### 建立你的词库 (Wildcards Library)
+
+你可以在插件目录中创建 TXT 文件，建立自己的素材库。
+例如创建 \`color.txt\`:
+
+\`\`\`text
+red
+blue
+gold
+silver
+\`\`\`
+
+创建 \`style.txt\`:
+
+\`\`\`text
+oil painting
+watercolor
+digital art
+\`\`\`
+
+### 编写模板 Prompt
+
+在生成时，你只需要调用文件名：
+
+> \`A beautiful rose, __color__, __style__, intricate details, 4k\`
+
+**批量生成 (Batch Count):**
+将生成批次设置为 100，SD 会自动从你的 TXT 文件中随机抽取词汇填空。每一张图都是独一无二的组合，彻底告别重复劳动。
+
+-----
+
+## 4. 质量控制：从 1000 张中选出 10 张
+
+批量生成的代价是良品率。通过自动化产出 1000 张图后，如何快速筛选？
+
+**推荐工作流：**
+
+1.  **Adobe Bridge / Lightroom:** 将所有生成的图片导入管理软件。
+2.  **星级标记法:**
+      * 第一轮（快速浏览）：看着顺眼的打 1 星。
+      * 第二轮（细节检查）：检查 1 星图片的手指、逻辑错误，没问题的升为 3 星。
+      * 第三轮（精修预备）：从 3 星中选出构图最完美的，升为 5 星，进入放大（Upscale）环节。
+3.  **只精修 5 星图片:** 不要浪费算力去放大每一张图，只处理金字塔尖的作品。
+
+-----
+
+## 5. 实战配方：通用主模板 (The Master Template)
+
+复制这个结构，根据你的需求填空，建立你自己的自动化流水线。
+
+### 模板结构
+
+> \`[View Angle] of [Subject], [Action/Pose], [Location], [Time of Day/Lighting], [Art Style], [Color Palette], [Camera/Render settings] --ar [Ratio]\`
+
+### 案例：批量生成极简动物壁纸
+
+我们希望生成一组“纯色背景下的极简动物”。
+
+**Midjourney Prompt:**
+
+> \`Minimalist flat illustration of {a cat, a dog, a lion, an eagle, a panda}, simple geometric shapes, vector art, {pastel pink, baby blue, mint green, cream yellow} solid background, lots of negative space, cute, 4k wallpaper --ar 9:20 --v 6.0\`
+
+  * **变量 1:** 5 种动物
+  * **变量 2:** 4 种背景色
+  * **总产量:** 一次指令生成 20 个不同组合，能够快速填满你网站的“动物 (Animals)”分类页。
+
+-----
+
+## 结语
+
+**参数化**将艺术家从重复劳动中解放出来。
+
+在 **AI壁纸工坊**，我们摒弃了随机抽卡式的创作，采用了严格的工业化流程。这意味着我们发布的每一个系列壁纸，在风格、色调和质量上都保持着惊人的一致性。掌握了这一课，你就掌握了量产高质量内容的钥匙。`,
+  },
+];
+
+export function findStaticPost(locale: string, slug: string): StaticPost | undefined {
+  if (locale === "zh") {
+    return zhStaticPosts.find((p) => p.slug === slug);
+  }
+  return undefined;
+}
