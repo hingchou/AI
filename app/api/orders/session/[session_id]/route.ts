@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
-import { getOrderBySessionId } from "@/models/order";
+import { findOrderBySessionId } from "@/models/order";
 
 export async function GET(
   request: Request,
@@ -23,7 +23,7 @@ export async function GET(
       );
     }
 
-    const order = await getOrderBySessionId(sessionId);
+    const order = await findOrderBySessionId(sessionId);
     
     if (!order) {
       return NextResponse.json(

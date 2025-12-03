@@ -1,8 +1,8 @@
 import {
-  CreditsTransType,
   increaseCredits,
   updateCreditForOrder,
 } from "./credit";
+import { CreditsTransType } from "@/types/credit";
 import { findOrderByOrderNo, updateOrderStatus } from "@/models/order";
 import { getIsoTimestr, getOneYearLaterTimestr } from "@/lib/time";
 

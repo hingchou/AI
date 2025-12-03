@@ -110,27 +110,16 @@ export async function increaseCredits({
   expired_at: Date;
 }) {
   try {
-    // 在这里实现积分增加的逻辑
-    const result = await db.query(
-      `INSERT INTO credits_trans (
-        uuid,
-        user_uuid,
-        trans_type,
-        credits,
-        expired_at,
-        created_at
-      ) VALUES ($1, $2, $3, $4, $5, $6)`,
-      [
-        getUuid(),
-        user_uuid,
-        trans_type,
-        credits,
-        expired_at,
-        new Date(),
-      ]
-    );
-
-    return result;
+    const new_credit: Credit = {
+      trans_no: getSnowId(),
+      created_at: getIsoTimestr(),
+      user_uuid: user_uuid,
+      trans_type: trans_type,
+      credits: credits,
+      order_no: "",
+      expired_at: expired_at.toISOString(),
+    };
+    await insertCredit(new_credit);
   } catch (error) {
     console.error("Increase credits failed:", error);
     throw error;

@@ -13,7 +13,7 @@ import Pricing from "@/components/blocks/pricing";
 import Showcase from "@/components/blocks/showcase";
 import Stats from "@/components/blocks/stats";
 import Testimonial from "@/components/blocks/testimonial";
-import Generator from "@/components/Generator";
+import Generator from "@/components/generator";
 import Wallpapers from "@/components/wallpapers";
 import ServerLandingPage from "./ServerLandingPage";
 import HomeBlogClient from "./HomeBlogClient";
@@ -34,9 +34,9 @@ export default function LandingPage({
     fetchData();
   }, [locale]);
 
-  const handleGenerate = (description: string, imageUrl: string) => {
-    setGeneratedImage(imageUrl);
+  const handleGenerate = (description: string) => {
     // 可以在这里添加其他逻辑，如保存到历史记录等
+    console.log('Generated wallpaper with description:', description);
   };
 
   if (!page)

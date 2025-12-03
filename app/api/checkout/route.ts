@@ -5,10 +5,15 @@ import { getSnowId } from "@/lib/hash";
 import { insertOrder } from "@/models/order";
 import { getIsoTimestr } from "@/lib/time";
 
-// 初始化Stripe，确保使用最新的API版本
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2023-10-16', // 使用支持的API版本
-});
+// 延迟初始化Stripe，避免构建时错误
+const getStripe = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-02-24.acacia', // 使用支持的API版本
+  });
+};
 
 export async function POST(req: Request) {
   try {
@@ -91,6 +96,7 @@ export async function POST(req: Request) {
         customer_email: session.user.email,
       });
       
+      const stripe = getStripe();
       const checkoutSession = await stripe.checkout.sessions.create({
         mode: "payment",
         payment_method_types: ["card"],

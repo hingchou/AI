@@ -1,8 +1,8 @@
 import {
   CreditsAmount,
-  CreditsTransType,
   decreaseCredits,
 } from "@/services/credit";
+import { CreditsTransType } from "@/types/credit";
 import { respData, respErr } from "@/lib/resp";
 
 import { getUserUuid } from "@/services/user";
