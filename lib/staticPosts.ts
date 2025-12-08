@@ -810,8 +810,10 @@ digital art
 ];
 
 export function findStaticPost(locale: string, slug: string): StaticPost | undefined {
+  // 优先查找对应语言的文章
   if (locale === "zh") {
     return zhStaticPosts.find((p) => p.slug === slug);
   }
-  return undefined;
+  // 其他语言回退到中文静态文章（如果存在）
+  return zhStaticPosts.find((p) => p.slug === slug);
 }
