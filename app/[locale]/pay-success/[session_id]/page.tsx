@@ -6,14 +6,9 @@ import { auth } from "@/auth";
 import { updateCreditForOrder } from "@/services/credit";
 import { findOrderBySessionId } from "@/models/order";
 
-const getStripe = () => {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    throw new Error('STRIPE_SECRET_KEY is not configured');
-  }
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-02-24.acacia',
-  });
-};
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+  apiVersion: '2023-10-16',
+});
 
 export default async function PaySuccessPage({ 
   params 
@@ -41,7 +36,6 @@ export default async function PaySuccessPage({
     if (order.status === "created") {
       try {
         // 获取Stripe会话信息
-        const stripe = getStripe();
         const checkoutSession = await stripe.checkout.sessions.retrieve(session_id);
         
         if (checkoutSession && checkoutSession.payment_status === 'paid') {
