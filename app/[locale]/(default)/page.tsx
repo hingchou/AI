@@ -13,7 +13,7 @@ import Pricing from "@/components/blocks/pricing";
 import Showcase from "@/components/blocks/showcase";
 import Stats from "@/components/blocks/stats";
 import Testimonial from "@/components/blocks/testimonial";
-import Generator from "@/components/generator";
+import Generator from "@/components/Generator";
 import Wallpapers from "@/components/wallpapers";
 import ServerLandingPage from "./ServerLandingPage";
 import HomeBlogClient from "./HomeBlogClient";
