@@ -2,18 +2,18 @@ import { notFound } from "next/navigation";
 import { Stripe } from "stripe";
 import { updateOrderStatus } from "@/models/order";
 import OrderSuccess from "@/components/blocks/order-success";
-import { auth } from "@/auth";
 import { updateCreditForOrder } from "@/services/credit";
 import { findOrderBySessionId } from "@/models/order";
 
-const getStripe = () => {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    throw new Error('STRIPE_SECRET_KEY is not configured');
+function getStripeClient() {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    return null;
   }
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+  return new Stripe(secretKey, {
     apiVersion: '2025-02-24.acacia',
   });
-};
+}
 
 export default async function PaySuccessPage({ 
   params 
@@ -39,9 +39,14 @@ export default async function PaySuccessPage({
     
     // 只有当订单状态为created时才处理
     if (order.status === "created") {
+      const stripe = getStripeClient();
+      if (!stripe) {
+        console.error("Stripe not configured");
+        return <OrderSuccess sessionId={session_id} />;
+      }
+      
       try {
         // 获取Stripe会话信息
-        const stripe = getStripe();
         const checkoutSession = await stripe.checkout.sessions.retrieve(session_id);
         
         if (checkoutSession && checkoutSession.payment_status === 'paid') {
